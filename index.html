@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Kai — AI Vibe Coding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <h1>Kai</h1>
+      <p>AI Vibe Coding · Ideas → Prototypes → Experiments</p>
+      <a class="contact-link" href="https://eekaishen.github.io/contact/" target="_blank" rel="noopener">
+        Contact me
+      </a>
+    </header>
+
+    <section class="grid" id="projectGrid"></section>
+
+    <footer>© 2025 KAI · AI VIBE CODING</footer>
+  </main>
+
+  <!-- IMAGE MODAL -->
+  <dialog id="imageModal">
+    <img id="modalImage">
+    <button onclick="imageModal.close()">Close</button>
+  </dialog>
+
+  <!-- PROJECT MODAL -->
+  <dialog id="projectModal">
+    <div id="projectContent"></div>
+    <button onclick="projectModal.close()">Close</button>
+  </dialog>
+
+  <script>
+    const grid = document.getElementById('projectGrid');
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const projectModal = document.getElementById('projectModal');
+    const projectContent = document.getElementById('projectContent');
+
+    function openImage(src) {
+      modalImage.src = src;
+      imageModal.showModal();
+    }
+
+    async function imageExists(src) {
+      try {
+        const res = await fetch(src, { method: 'HEAD' });
+        return res.ok;
+      } catch {
+        return false;
+      }
+    }
+
+    async function loadProject(id) {
+      const res = await fetch(`projects/${id}/content.txt`);
+      const text = await res.text();
+
+      const [meta, details] = text.split('details:');
+      const lines = meta.split('\n');
+
+      const title = lines.find(l => l.startsWith('title:'))?.replace('title:', '').trim();
+      const desc = lines.find(l => l.startsWith('description:'))?.replace('description:', '').trim();
+      const labels = lines.find(l => l.startsWith('labels:'))
+        ?.replace('labels:', '')
+        .split(',')
+        .map(l => l.trim());
+
+      let imagesHTML = '';
+      for (let i = 1; i <= 5; i++) {
+        const src = `projects/${id}/images/${i}.png`;
+        if (await imageExists(src)) {
+          imagesHTML += `<img src="${src}" onclick="openImage(this.src)">`;
+        }
+      }
+
+      const card = document.createElement('article');
+      card.className = 'card';
+
+      card.innerHTML = `
+    <div class="carousel"><div class="track">${imagesHTML}</div></div>
+    <h2>${title}</h2>
+    <p class="desc">${desc}</p>
+    <div class="labels">${labels.map(l => `<span>${l}</span>`).join('')}</div>
+    <div class="actions">
+      <button class="primary" onclick="openProject('${id}')">View Project</button>
+      <button onclick="shareProject('${id}','${title}','${desc}')">Share</button>
+    </div>
+  `;
+
+      grid.appendChild(card);
+    }
+
+    function openProject(id) {
+      fetch(`projects/${id}/content.txt`)
+        .then(r => r.text())
+        .then(t => {
+          projectContent.innerHTML =
+            `<pre>${t.split('details:')[1]?.trim() || ''}</pre>`;
+          projectModal.showModal();
+        });
+    }
+
+    function shareProject(id, title, desc) {
+      const url = location.origin + location.pathname + '#' + id;
+      if (navigator.share) {
+        navigator.share({ title, text: desc, url });
+      } else {
+        navigator.clipboard.writeText(url);
+        alert('Link copied');
+      }
+    }
+
+    fetch('projects/index.json')
+      .then(r => r.json())
+      .then(list => list.forEach(loadProject));
+  </script>
+</body>
+
+</html>
