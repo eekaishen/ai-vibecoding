@@ -1,27 +1,33 @@
 title: Daily Reflection Log
-description: A lightweight daily reflection web app where users log their day and receive AI-powered insights and analysis.
-labels: Reflection, Journaling, ChatGPT, Web App, AI Analysis
+description: A lightweight daily reflection web app that turns short daily logs into AI-powered insights over time.
+labels: Reflection, Journaling, AI Analysis, Web App, Gemini
 link: https://eekaishen.github.io/nighty
 
 details:
 This project is a daily reflection and journaling web app designed to help users
-capture what happened during their day in a simple, low-friction way.
+quickly capture what happened during their day in a simple, low-friction format.
 
-Users input free-form reflections about their experiences, emotions, challenges,
-and wins. Each entry is then analyzed using GPT to surface patterns, emotional
-signals, recurring themes, and personal insights over time.
+Users write short, free-form reflections about their experiences, emotions,
+challenges, and wins. Each entry is automatically emailed back to the user for
+personal record-keeping and continuity.
 
-The goal is not just journaling, but structured self-awareness — transforming
-unstructured daily thoughts into meaningful summaries and reflections that users
-can learn from.
+Reflections are analyzed using Gemini AI to extract emotional signals, recurring
+themes, behavioral patterns, and high-level insights. The system supports
+multiple time perspectives, allowing users to review reflections over the
+last 7 days, 1 month, or year-to-date.
 
-The app is designed to be fast, minimal, and distraction-free, encouraging
-consistent daily usage without overwhelming the user with complex features.
+The goal goes beyond journaling — it focuses on building structured
+self-awareness by transforming unstructured daily thoughts into meaningful
+summaries that users can reflect on and learn from over time.
+
+The app is intentionally minimal, fast, and distraction-free, encouraging
+consistent daily usage without overwhelming the user with complex workflows.
 
 Key experiments:
 - Daily free-text reflection input
-- GPT-powered sentiment and theme analysis
-- Automated reflection summaries and insights
-- Pattern recognition across multiple days
+- Email-to-self delivery for personal journaling records
+- Gemini-powered sentiment and theme analysis
+- Insight summaries across 7-day, monthly, and YTD ranges
+- Pattern recognition from accumulated reflections
 - Lightweight frontend-first web app architecture
-- Exploring AI-assisted self-reflection and journaling workflows
+- Exploring AI-assisted self-reflection and personal growth workflows
