@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta property="og:title" content="Kai — AI Vibe Coding Project" />
+  <meta property="og:description" content="AI experiment and prototype by Kai." />
+  <meta property="og:image" content="https://eekaishen.github.io/ai-vibecoding/og-preview.png" />
+  <meta property="og:type" content="website" />
+
+  <script>
+    const id = new URLSearchParams(location.search).get('id');
+    if (!id) location.href = '/';
+  </script>
+</head>
+<body>
+  <script>
+    const id = new URLSearchParams(location.search).get('id');
+    location.href = '/#' + id;
+  </script>
+</body>
+</html>

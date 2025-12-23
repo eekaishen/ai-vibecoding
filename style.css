@@ -1,3 +1,6 @@
+/* =========================
+   RESET & BASE
+========================= */
 * {
   box-sizing: border-box;
 }
@@ -9,17 +12,21 @@ body {
   color: #111;
 }
 
-/* Layout */
+/* =========================
+   PAGE LAYOUT
+========================= */
 .page {
   max-width: 1200px;
   margin: auto;
   padding: 32px 16px 48px;
 }
 
-/* Hero */
+/* =========================
+   HERO
+========================= */
 .hero {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .hero h1 {
@@ -28,49 +35,149 @@ body {
 }
 
 .hero p {
+  margin-top: 6px;
   color: #555;
 }
 
-/* Grid */
+/* Contact pill */
+.contact-link {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background-color: #2563eb;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  background-color: #1e4fd8;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   GRID
+========================= */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 28px;
 }
 
 @media (min-width: 1024px) {
-  .grid.locked {
-    grid-template-columns: repeat(3, 1fr);
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
   }
 }
 
-/* Card */
+/* =========================
+   CARD
+========================= */
 .card {
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(14px);
   border-radius: 18px;
   padding: 16px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-}
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 
-.card.placeholder {
-  background: rgba(255,255,255,0.4);
-  box-shadow: none;
-  position: relative;
-}
-
-.card.placeholder::after {
-  content: "Coming Soon";
-  position: absolute;
-  inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 13px;
+  flex-direction: column;
+  height: 460px;
 }
 
-/* Carousel */
+/* Title */
+.card h2 {
+  margin: 10px 0 6px;
+  font-size: 18px;
+}
+
+/* Description */
+.card .desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.45;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================
+   MORE LINK
+========================= */
+.more-link {
+  margin-top: 10px;
+}
+
+.more-link a {
+  font-size: 14px;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.more-link a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   LABELS
+========================= */
+.labels {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+
+.labels span {
+  font-size: 12px;
+  padding: 4px 8px;
+  background: #f0f0f0;
+  border-radius: 999px;
+}
+
+/* =========================
+   ACTIONS (SINGLE ROW)
+========================= */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.actions a,
+.actions button {
+  flex: 1;
+  text-align: center;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Website button */
+.visit-site {
+  background: #eef2ff;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Share button */
+.actions button {
+  background: #f0f0f0;
+}
+
+/* =========================
+   CAROUSEL
+========================= */
 .carousel {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -86,6 +193,7 @@ body {
   flex: 0 0 80%;
   height: 160px;
   object-fit: cover;
+  object-position: top;
   border-radius: 14px;
   scroll-snap-align: start;
   cursor: zoom-in;
@@ -96,285 +204,98 @@ body {
   opacity: 0.85;
 }
 
-/* Text */
-.card h2 {
-  margin: 8px 0 4px;
-  font-size: 18px;
+@media (max-width: 768px) {
+  .track img {
+    flex-basis: 90%;
+  }
 }
 
-.desc {
-  font-size: 14px;
-  color: #555;
-}
-
-.labels {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-.labels span {
-  font-size: 12px;
-  padding: 4px 8px;
-  background: #f0f0f0;
-  border-radius: 999px;
-}
-
-.link {
-  display: inline-block;
-  margin-top: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #4b6cff;
-}
-
-/* Footer */
-footer {
-  margin-top: 48px;
-  text-align: center;
-  font-size: 11px;
-  color: #888;
-}
-
-/* LIGHTBOX */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-}
-
-.lightbox:target {
-  display: flex;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  font-size: 32px;
-  color: white;
-  text-decoration: none;
-}
-
-.actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.actions button {
-  background: #f0f0f0;
+/* =========================
+   IMAGE MODAL
+========================= */
+.image-modal {
   border: none;
-  padding: 8px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 13px;
+  padding: 0;
+  background: transparent;
 }
 
-/* Dialog */
-dialog {
-  border: none;
-  border-radius: 16px;
-  padding: 24px;
-  max-width: 420px;
+.image-modal::backdrop {
+  background: rgba(0, 0, 0, 0.8);
 }
 
-dialog::backdrop {
-  background: rgba(0,0,0,0.5);
-}
-
-.actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.actions button {
-  background: #f0f0f0;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-/* Modal */
-dialog {
-  border: none;
-  border-radius: 16px;
-  padding: 24px;
-  max-width: 420px;
-}
-
-dialog::backdrop {
-  background: rgba(0,0,0,0.5);
-}
-
-.actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.actions button {
-  border: none;
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-size: 13px;
-  cursor: pointer;
-  background: #f0f0f0;
-}
-
-/* PRIMARY BUTTON */
-.actions .primary {
-  background: #2563eb;
-  color: white;
-}
-
-/* Dialogs */
-dialog {
-  border: none;
-  border-radius: 16px;
-  padding: 24px;
-  max-width: 420px;
-}
-
-dialog::backdrop {
-  background: rgba(0,0,0,0.5);
-}
-
-#imageModal img {
+.image-modal img {
   max-width: 90vw;
   max-height: 80vh;
   border-radius: 12px;
 }
 
-.carousel {
-  overflow-x: auto;
+/* Navigation */
+.image-modal .nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
 }
 
-.track {
-  display: flex;
-  gap: 12px;
+.image-modal .prev {
+  left: 12px;
 }
 
-.track img {
-  aspect-ratio: 1 / 1;
-  width: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: zoom-in;
+.image-modal .next {
+  right: 12px;
 }
 
-@media (max-width: 768px) {
-  .track img {
-    width: 80%;
-  }
+.image-modal .close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
-/* --- GRID FIX: 1 col mobile, 3 col desktop --- */
-.grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:24px;
-}
-
-@media (min-width: 1024px){
-  .grid{
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    align-items:start;
-  }
-}
-
-/* --- CARD HEIGHT NORMALIZATION --- */
-.card {
-  display: flex;
-  flex-direction: column;
-  height: 520px; /* adjust once, all cards align */
-}
-
-/* Clamp description text */
-.card .desc {
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* max lines shown */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Push actions to bottom */
-.card .actions {
-  margin-top: auto;
-}
-
-/* --- PROJECT MODAL (MOBILE-FIRST) --- */
+/* =========================
+   PROJECT MODAL
+========================= */
 #projectModal {
   width: 90vw;
   max-width: 420px;
   max-height: 80vh;
+  border: none;
+  border-radius: 16px;
   padding: 20px;
 }
 
-/* Remove horizontal scrolling */
-#projectModal pre {
-  white-space: pre-wrap;   /* wrap text */
-  word-break: break-word;
-  overflow-x: hidden;
-  max-height: 60vh;
-  overflow-y: auto;
-  font-family: inherit;
+#projectModal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.project-detail {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* Better close button spacing */
-#projectModal button {
-  margin-top: 16px;
+.project-detail p {
+  margin-bottom: 16px;
 }
 
-/* Contact link under header */
-.contact-link {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 14px;
-  color: #2563eb;
-  text-decoration: none;
-}
-
-.contact-link:hover {
-  text-decoration: underline;
-}
-
-/* --- CONTACT ME PILL BUTTON --- */
-.contact-link {
-  display: inline-block;
+#projectModal button.close {
   margin-top: 12px;
-  padding: 10px 18px;
-  border-radius: 999px;
-
-  background-color: #2563eb; /* blue */
-  color: #ffffff;
-
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
 }
 
-.contact-link:hover {
-  background-color: #1e4fd8;
-  transform: translateY(-1px);
-}
-
-.contact-link:active {
-  transform: translateY(0);
+/* =========================
+   FOOTER
+========================= */
+footer {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 11px;
+  color: #888;
 }

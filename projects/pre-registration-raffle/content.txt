@@ -1,0 +1,23 @@
+title: Pre-registration Raffle System
+description: A pre-registration raffle page built for product testing, entry validation, and conversion tracking accuracy.
+labels: Marketing, Raffle, Analytics, ChatGPT
+link: https://kaiorfinn.github.io/raffle_ab/
+
+details:
+This project is designed to test and validate pre-registration
+raffle mechanics for early-stage product launches.
+
+The main objective is to cross-check Google Analytics (GA)
+event tracking against affiliate software conversion data,
+ensuring accuracy, consistency, and reliable attribution.
+
+Users can submit a raffle entry, receive a unique entry
+number, and verify their registration, while structured
+events are recorded for analysis and comparison.
+
+Key features:
+- Pre-registration raffle entry flow
+- Entry number generation and validation
+- Google Analytics event tracking
+- Affiliate conversion accuracy comparison
+- Lightweight static setup for fast experimentation

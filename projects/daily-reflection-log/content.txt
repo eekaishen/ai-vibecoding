@@ -1,0 +1,27 @@
+title: Daily Reflection Log
+description: A lightweight daily reflection web app where users log their day and receive AI-powered insights and analysis.
+labels: Reflection, Journaling, ChatGPT, Web App, AI Analysis
+link: https://eekaishen.github.io/nighty
+
+details:
+This project is a daily reflection and journaling web app designed to help users
+capture what happened during their day in a simple, low-friction way.
+
+Users input free-form reflections about their experiences, emotions, challenges,
+and wins. Each entry is then analyzed using GPT to surface patterns, emotional
+signals, recurring themes, and personal insights over time.
+
+The goal is not just journaling, but structured self-awareness — transforming
+unstructured daily thoughts into meaningful summaries and reflections that users
+can learn from.
+
+The app is designed to be fast, minimal, and distraction-free, encouraging
+consistent daily usage without overwhelming the user with complex features.
+
+Key experiments:
+- Daily free-text reflection input
+- GPT-powered sentiment and theme analysis
+- Automated reflection summaries and insights
+- Pattern recognition across multiple days
+- Lightweight frontend-first web app architecture
+- Exploring AI-assisted self-reflection and journaling workflows

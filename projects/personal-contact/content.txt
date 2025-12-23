@@ -1,0 +1,7 @@
+title: Personal Contact
+description: A personal contact and showcase page built with AI-assisted coding.
+link: https://eekaishen.github.io/contact/
+labels: AI Coding, Personal Site, Frontend
+
+details:
+This project serves as a personal contact and showcase page.

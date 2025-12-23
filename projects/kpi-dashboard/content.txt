@@ -1,0 +1,28 @@
+title: KPI Dashboard
+description: A lightweight KPI dashboard for small teams with authentication, submissions, and review workflows.
+labels: KPI, Dashboard, Firebase, Google Apps Script, ChatGPT
+link: https://kpi-dashboard-8c5ec.web.app/
+
+details:
+This project is a KPI dashboard designed for small teams to track
+weekly and monthly performance in a simple, structured way.
+
+User authentication is handled via Firebase, ensuring that only
+authorized users can access and submit KPI data. Once logged in,
+users can submit updates, feedback, blockers, and support requests.
+
+All KPI data is stored in Google Sheets, which acts as a lightweight
+database. Google Apps Script is used as the backend layer to handle
+data validation, reads, writes, and workflow logic.
+
+The system is optimized for speed, low maintenance, and transparency,
+making it suitable for internal team management and experimentation
+without a heavy backend infrastructure.
+
+Key experiments:
+- Firebase authentication for secure user access
+- Google Sheets used as a lightweight database
+- Google Apps Script as a backend API layer
+- KPI submission and review workflow
+- Admin and user role separation
+- Fast iteration without traditional backend servers
